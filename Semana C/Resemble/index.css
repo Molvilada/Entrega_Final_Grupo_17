@@ -1,0 +1,11 @@
+img {
+  width: 100%;
+}
+
+.callout-failed {
+  border-left: 4px solid rgb(241, 174, 181);
+}
+
+.callout-success {
+  border-left: 4px solid rgb(209, 231, 221);
+}
