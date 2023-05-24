@@ -1,0 +1,13 @@
+{
+    "url": "http://localhost:2368/ghost",
+    "headless": true,
+    "depthLevels": 1,
+    "inputValues": false,
+    "values": {
+        "tag-name": "tag prueba",
+        "tag-slug": "tag slug",
+        "tag-description": "tag-description",
+        "nameInput": "Laura",
+        "ember8": "ld.molina11@uniandes.edu.co"},
+    "browsers": ["chromium"]
+}
