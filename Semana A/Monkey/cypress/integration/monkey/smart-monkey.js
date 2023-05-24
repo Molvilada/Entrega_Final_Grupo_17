@@ -8,6 +8,8 @@ const appName = Cypress.env("appName") || "your app";
 const events = Cypress.env("events") || 100;
 const delay = Cypress.env("delay") || 100;
 var seed = Cypress.env("seed") || generarSeedAleatorio();
+const email = Cypress.env("email");
+const password = Cypress.env("password");
 
 const num_categories = 7;
 
@@ -107,7 +109,7 @@ function randClick() {
       //Use cypress selector if any fits
       if (!!element.id) {
         //boolean that indicates if the element has a non-empty id
-        cy.get(`#${element.id}`).click();
+        cy.get(`#${element.id}`).click({ force: true });
         info = `${element.tagName} with id: ${element.id}`;
       } else {
         /*
@@ -159,7 +161,7 @@ function randDClick() {
       //Use cypress selector if any fits
       if (!!element.id) {
         //boolean that indicates if the element has a non-empty id
-        cy.get(`#${element.id}`).dblclick();
+        cy.get(`#${element.id}`).dblclick({ force: true });
         info = `${element.tagName} with id: ${element.id}`;
       } else {
         /*
@@ -398,6 +400,7 @@ function reload() {
     funtype: "Page navigation (Reload)",
     info: "Successfully reloaded the page",
   });
+  cy.wait(2000);
 }
 
 function enter() {
@@ -516,6 +519,7 @@ function navBack() {
       info = "Navigated 1 page back";
     } else info = "INVALID. Navigation stack empty";
     cy.task("logCommand", { funtype: "Page navigation (back)", info: info });
+    cy.wait(2000);
   });
 }
 
@@ -593,7 +597,7 @@ function fillInput() {
           inp.getAttribute("type") == "radio" ||
           inp.getAttribute("type") == "checkbox"
         ) {
-          cy.wrap(inp).click();
+          cy.wrap(inp).click({ force: true });
           info = `Input ${inp.id} of type ${inp.getAttribute()} was clicked`;
         } else if (inp.getAttribute("type") == "date") {
           let type = faker.date;
@@ -635,7 +639,7 @@ function clearInput() {
     if (inputs.length > 0) {
       var inp = inputs.item(getRandomInt(0, inputs.length));
       if (!Cypress.dom.isHidden(inp)) {
-        cy.wrap(inp).clear();
+        cy.wrap(inp).clear({ force: true });
         focused = true;
         info = `Cleared input ${inp.id}`;
       } else info = `Input ${inp.id} is hidden`;
@@ -697,11 +701,19 @@ const functions = [
   [typeCharKey],
   [spkeypress, enter],
   [reload, navBack, navForward],
-  [changeViewport, clearCookies, clearLocalStorage],
+  // [changeViewport, clearCookies, clearLocalStorage],
+  [changeViewport, clearLocalStorage],
   [fillInput, clearInput, clickRandAnchor, clickRandButton],
 ];
 
 describe(`${appName} under smarter monkeys`, function () {
+  // Login
+  beforeEach(() => {
+    cy.visit(url + "#/signin");
+    cy.login(email, password);
+    cy.wait(1000);
+  });
+
   //Listeners
   cy.on("uncaught:exception", (err) => {
     cy.task("genericLog", { message: `An exception occurred: ${err}` });
@@ -725,17 +737,6 @@ describe(`${appName} under smarter monkeys`, function () {
       html: `<p><strong>Test failed with the error: </strong>${err}</p>`,
     });
     return false;
-  });
-
-  before(() => {
-    // Autenticación
-    let email = "ld.molina11@uniandes.edu.co";
-    let password = "1234567890A.";
-    cy.visit(url + "#/signin");
-    cy.get('input[name="identification"]').type(email);
-    cy.get('input[name="password"]').type(password);
-    cy.get('button[type="submit"]').click();
-    cy.wait(1000);
   });
 
   it(`visits ${appName} and survives smarter monkeys`, function () {
@@ -764,7 +765,7 @@ describe(`${appName} under smarter monkeys`, function () {
       pending_events[6] = (events * pct_browserChaos) / 100;
       pending_events[7] = (events * pct_actions) / 100;
 
-      cy.visit(url + "#/signin").then((win) => {
+      cy.visit(url).then((win) => {
         let d = win.document;
         curPageMaxY =
           Math.max(

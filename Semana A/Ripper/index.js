@@ -82,30 +82,9 @@ console.log(inputValues);
         clean(temp_directory)
       }
 
-      // Autenticación
-
-      console.log("Autenticación: ", baseUrl)
-      
-      await page.goto(baseUrl + "/#/signin");
-      // Esperar a que se cargue la página de inicio de sesión y ubicar los campos de entrada y el botón de inicio de sesión
-      const emailInput = await page.waitForSelector('#ember8');
-      const passwordInput = await page.waitForSelector('#ember10');
-      const loginButton = await page.waitForSelector('#ember12');
-
-
-      // Ingresar las credenciales de inicio de sesión y hacer clic en el botón de inicio de sesión
-      await emailInput.type('ld.molina11@uniandes.edu.co');
-      await passwordInput.type('1234567890A.');
-      await loginButton.click();
-
-      // Esperar a que la página de inicio de sesión se procese y se cargue
-      await page.waitForNavigation();
-
       //-------------------------------------------------------------------------------------------------------------------------------------------------
       //Web application ripping
       //Initial params: Playwright's Page object, URL of the current page, index of current page, parent's index
-      
-    
       await recursiveExploration(page, baseUrl, 0, -1); 
   
       printTree(); //Log in the console
@@ -157,8 +136,6 @@ async function recursiveExploration(page, link, depth, parentState){
     console.log(err); 
     return; 
   });
-
-
   let html = await getDOM(page);
   let parsedHtml = parser.parse(html);
   let body = parsedHtml.querySelector('body');
@@ -205,8 +182,6 @@ async function recursiveExploration(page, link, depth, parentState){
       url: link,
       children: links, 
     });
-
-    
     
     if(link.includes(baseUrl)){ //Only explore pages of the specified domain
       let elementList = []; 

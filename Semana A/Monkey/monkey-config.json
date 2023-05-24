@@ -2,7 +2,7 @@
   "projectId": "TSDL-Monkey-with-cypress",
   "baseUrl": "http://localhost:2368/ghost/",
   "env": {
-    "appName": "App prueba",
+    "appName": "Ghost v3.41.1",
     "events": 200,
     "delay": 300,
     "pctClicks": 19,
@@ -11,12 +11,14 @@
     "pctKeys": 16,
     "pctSpKeys": 16,
     "pctPgNav": 16,
-    "pointer": true
+    "pointer": true,
+    "email": "ld.molina11@uniandes.edu.co",
+    "password": "1234567890A."
   },
   "integrationFolder": "./cypress/integration/monkey",
   "pluginsFile": "./cypress/plugins/index.js",
   "pageLoadTimeout": 120000,
-  "defaultCommandTimeout": 60000,
+  "defaultCommandTimeout": 120000,
   "testFiles": "monkey.js",
   "videosFolder": "./results"
 }

@@ -11,8 +11,15 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
+
+// Autenticación
+Cypress.Commands.add("login", (email, password) => {
+  cy.get('input[name="identification"]').should("exist").type(email);
+  cy.get('input[name="password"]').should("exist").type(password);
+  cy.get('button[type="submit"]').should("exist").click();
+  cy.wait(1000);
+});
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

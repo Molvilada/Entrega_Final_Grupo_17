@@ -9,6 +9,8 @@ const appName = Cypress.env("appName") || "your app";
 const events = Cypress.env("events") || 100;
 const delay = Cypress.env("delay") || 100;
 var seed = Cypress.env("seed") || generarSeedAleatorio();
+const email = Cypress.env("email");
+const password = Cypress.env("password");
 
 const pct_clicks = Cypress.env("pctClicks") || 19;
 const pct_scrolls = Cypress.env("pctScroll") || 17;
@@ -20,7 +22,7 @@ const pct_pgnav = Cypress.env("pctPgNav") || 16;
 const LOG_FILENAME = "../../../results/monkey-execution.html";
 
 function generarSeedAleatorio() {
-  return Math.floor(Math.random() * 100000);
+  return Math.floor(Math.random() * 10000);
 }
 
 /*
@@ -568,6 +570,13 @@ function randomEvent() {
 var pending_events = [, , , , ,];
 
 describe(`${appName} under monkeys`, function () {
+  // Login
+  beforeEach(() => {
+    cy.visit(url + "#/signin");
+    cy.login(email, password);
+    cy.wait(1000);
+  });
+
   //Listener
   cy.on("uncaught:exception", (err) => {
     cy.task("genericLog", { message: `An exception occurred: ${err}` });
@@ -591,17 +600,6 @@ describe(`${appName} under monkeys`, function () {
       html: `<p><strong>Test failed with the error: </strong>${err}</p>`,
     });
     return false;
-  });
-
-  before(() => {
-    // Autenticación
-    let email = "ld.molina11@uniandes.edu.co";
-    let password = "1234567890A.";
-    cy.visit(url + "#/signin");
-    cy.get('input[name="identification"]').type(email);
-    cy.get('input[name="password"]').type(password);
-    cy.get('button[type="submit"]').click();
-    cy.wait(1000);
   });
 
   it(`visits ${appName} and survives monkeys`, function () {

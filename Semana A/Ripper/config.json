@@ -1,13 +1,12 @@
 {
-    "url": "http://localhost:2368/ghost",
+    "url": "https://thesoftwaredesignlab.github.io",
     "headless": true,
     "depthLevels": 1,
     "inputValues": false,
-    "values": {
-        "tag-name": "tag prueba",
-        "tag-slug": "tag slug",
-        "tag-description": "tag-description",
-        "nameInput": "Laura",
-        "ember8": "ld.molina11@uniandes.edu.co"},
-    "browsers": ["chromium"]
+    "values": {"userInput": "Mario",
+        "passwordInput": "123456",
+        "passwordTwoInput": "123456",
+        "nameInput": "Mario",
+        "emailInput": "mario@b.com"},
+    "browsers": ["chromium", "webkit", "firefox"]
 }
