@@ -15,8 +15,8 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 [Inventario de pruebas]()
 
 # Semana 3
-## Pros y Contras de Monkeys y Rippers
-[Enlace a pagina de wiki](https://github.com/Molvilada/Entrega_Final_Grupo_17/wiki/Pros-Contras-Monkeys-y-Rippers)
+## Resultados, Pros y Contras de Monkeys y Rippers
+[Enlace al README](Semana A/README.md)
 
 # Semana 5
 ## Pre-requisitos y pasos previos:
