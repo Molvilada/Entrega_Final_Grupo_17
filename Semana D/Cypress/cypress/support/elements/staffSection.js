@@ -110,7 +110,8 @@ export default class StaffSection {
         const apiKey = "e7649c20";
         const URL = `https://my.api.mockaroo.com/${testMockaroo}?key=${apiKey}`;
         return URL;
-      }   
+      }
+    
       
       getDinamicBioMockaroo(testMockaroo) {
         return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
