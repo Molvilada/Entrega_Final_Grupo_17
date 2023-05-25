@@ -1,11 +1,9 @@
 import AdminMenu from "../../support/elements/adminMenu";
-import Site from "../../support/elements/site";
 import GeneralSection from "../../support/elements/generalSection";
 import { mockarooService } from "../../support/services";
 
 const generalSection = new GeneralSection();
 const adminMenu = new AdminMenu();
-const site = new Site();
 
 describe("Editar meta título con caracteres especiales.", () => {
   it("Editar meta título con caracteres especiales.", () => {
