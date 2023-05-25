@@ -11,6 +11,22 @@ export default class GeneralSection {
     return cy.get(".gh-setting-first input").eq(1);
   }
 
+  get metaDataButton() {
+    return cy.contains(".gh-setting-first", "Meta data").find("button.gh-btn");
+  }
+
+  get metaTitleInput() {
+    return cy.get("#metaTitle");
+  }
+
+  get metaTitleCountDown() {
+    return cy.contains("div.form-group", "Meta title").find("span.word-count");
+  }
+
+  get metaDescriptionInput() {
+    return cy.get("#metaDescription");
+  }
+
   get saveButton() {
     return cy.get(".view-actions button");
   }
@@ -52,5 +68,12 @@ export default class GeneralSection {
         .type(description, { force: true });
       this.titleDescriptionDescInput.blur();
     });
+  }
+
+  editMetaData(title, description) {
+    this.metaTitleInput.clear();
+    this.metaTitleInput.type(title, { force: true });
+    this.metaDescriptionInput.clear();
+    this.metaDescriptionInput.type(description, { force: true });
   }
 }
