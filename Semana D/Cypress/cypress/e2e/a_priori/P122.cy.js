@@ -1,12 +1,12 @@
 import AdminMenu from "../../support/elements/adminMenu";
 import GeneralSection from "../../support/elements/generalSection";
-import jsonData from "./data/P121.json";
+import jsonData from "./data/P122.json";
 
 const generalSection = new GeneralSection();
 const adminMenu = new AdminMenu();
 
-describe("Editar meta título con 70 caracteres.", () => {
-  it("Editar meta título con 70 caracteres.", () => {
+describe("Editar meta título con 71 caracteres.", () => {
+  it("Editar meta título con 71 caracteres.", () => {
     /* 
     -------------
       GIVEN
@@ -35,11 +35,13 @@ describe("Editar meta título con 70 caracteres.", () => {
     const metaDescription = jsonData.meta_description;
     generalSection.editMetaData(metaTitle, metaDescription);
     generalSection.saveButton.click();
+
     /* 
-      -------------
-        THEN
-      -------------
-      */
+    -------------
+      THEN
+    -------------
+    */
+
     // Verifica que se guarde
     generalSection.savedSettingsButton.should("exist");
     cy.reload();
@@ -48,5 +50,8 @@ describe("Editar meta título con 70 caracteres.", () => {
     generalSection.metaTitleInput.should("have.value", metaTitle);
     generalSection.metaDescriptionInput.should("have.value", metaDescription);
     generalSection.metaTitleCountDown.contains(metaTitle.length.toString());
+    generalSection.metaTitleCountDown
+      .should("have.css", "color")
+      .and("eq", "rgb(226, 84, 64)");
   });
 });
