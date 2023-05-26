@@ -85,6 +85,9 @@ export default class StaffSection {
     get twitterField() {
         return cy.get('input[id="user-twitter"]');
     }
+    get noFormatTwitterAlert() {
+        return cy.get('p').contains('Your Username is not a valid Twitter Username');
+    }
 
     get editorContainerPass() {
         return cy.get('#user-password-new');
@@ -130,6 +133,32 @@ export default class StaffSection {
           };
         });
       }
+      getDinamicTwMockaroo(testMockaroo) {
+        return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
+          const { twProfile } = response.body;
+          return {
+            twProfile,
+          };
+        });
+      }
+
+    getDinamicTwMockarooRE(testMockaroo) {
+        return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
+            const { profile } = response.body;
+            return {
+                profile,
+            };
+        });
+    }
+
+    getDinamicTwMockarooURL(testMockaroo) {
+        return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
+            const { profile } = response.body;
+            return {
+                profile,
+            };
+        });
+    }
 
       replacePass(newpass) {                
         this.editorContainerPass.type(newpass);
