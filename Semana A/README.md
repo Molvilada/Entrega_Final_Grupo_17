@@ -1,3 +1,4 @@
+
 # Resultados de la ejecución de Monkeys
 
 El primer encuentro con los scripts resultó desafiante, debido a la presencia de múltiples errores y configuraciones de entornos que debieron abordarse. Si bien los scripts de ejemplo se ejecutaron sin incovenientes, al llevar a cabo su implementación en nuestro proyecto Ghost, se presentaron diversas dificultades adicionales. El primer obstaculo fue la correcta implementación del inicio de sesión, ya que sin está era imposible avanzar con las pruebas; no obstante, posteriormente se detectaron diversos errores del propio script, que debieron ser resueltos. Tras múltiples intentos no se consiguó la correcta ejecución del smart-monkey, por lo anterior, se tomó la decisión de ejecutar únicamente el monkey estándar. 
@@ -50,3 +51,30 @@ Y ese el error respectivo:
 * Encontrar errores raros es más complicado.
 * Para ejecutar los scripts es necesario tener una buena capacidad computacional.
 * La personalización es más complicada que en los Monkeys.
+
+## Pasos para correr los scripts
+### Cypress (Monkey)
+In order to use the tester, you will have to follow these steps:
+- Get the source code from this repository: Click on Download as Zip and unzip the folder in your machine or clone the repo
+- Install the required modules: Using [Node Package Manager](https://www.npmjs.com/), run `npm install` on the root folder; this will install the cypress CLI module and other dependencies, which are the [faker](https://www.npmjs.com/package/faker) module and a cypress [plugin](https://github.com/Bkucera/cypress-plugin-tab) for pressing the tab key, along with [another plugin](https://github.com/flotwig/cypress-log-to-output) for capturing the browser console output. In case you already have cypress installed, it is better to avoid installing it again in this folder; for this, run the commands `npm install faker`, `npm install -D cypress-log-to-output` and `npm install -D cypress-plugin-tab` individually.
+- Configure the desired parameters: The repository's root folder contains two JSON files which have the configuration parameters for each test. Open them and edit the parameters as needed. You can change the baseURL, the seed for the test, the percentage of events, the delay between events, and the number of events.
+- Run the desired tester: The commands for running the tests must be executed from the root folder, so do not forget to change de directory again with the `cd` command. For the random tester, run `cypress run --config-file ./monkey-config.json`. For the slightly smarter random tester, run `cypress run --config-file ./smart-monkey-config.json`.
+
+\* Note: The default browser is Electron 78 in headless mode. In order to test another browser, add the `--browser <browser-name-or-path>` option to the run command, indicating which of the [supported browsers](https://docs.cypress.io/guides/guides/launching-browsers.html#Browsers) you want to use
+### RIPuppet
+A node js library for GUI Ripping on web applications
+
+#### Executing
+To execute the testing tool use the following command:
+
+```
+node index.js url headless
+
+```
+
+For example:
+
+```
+node index.js https://github.com true
+
+```
