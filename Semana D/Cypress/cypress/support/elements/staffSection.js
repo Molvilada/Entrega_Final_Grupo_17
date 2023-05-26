@@ -104,7 +104,32 @@ export default class StaffSection {
       get changePass() {
         return cy.get("button").contains("Change Password");
         //return cy.get("a").contains("Change Password", {force: true});
-      }      
+      }  
+
+      urlMockaroo(testMockaroo) {
+        const apiKey = "e7649c20";
+        const URL = `https://my.api.mockaroo.com/${testMockaroo}?key=${apiKey}`;
+        return URL;
+      }
+    
+      
+      getDinamicBioMockaroo(testMockaroo) {
+        return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
+          const { bio } = response.body;    
+          return {
+            bio,
+          };
+        });
+      }
+
+      getDinamicFaceMockaroo(testMockaroo) {
+        return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
+          const { fbProfile } = response.body;    
+          return {
+            fbProfile,
+          };
+        });
+      }
 
       replacePass(newpass) {                
         this.editorContainerPass.type(newpass);
