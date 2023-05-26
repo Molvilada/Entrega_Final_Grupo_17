@@ -5,8 +5,8 @@ import { mockarooService } from "../../support/services";
 const generalSection = new GeneralSection();
 const adminMenu = new AdminMenu();
 
-describe("Editar meta descripción con caracteres especiales.", () => {
-  it("Editar meta descripción con caracteres especiales.", () => {
+describe("Editar meta título con 300 caracteres descripción.", () => {
+  it("Editar meta título con 300 caracteres descripción.", () => {
     /* 
     -------------
       GIVEN
@@ -30,7 +30,7 @@ describe("Editar meta descripción con caracteres especiales.", () => {
     */
 
     // Editar meta titulo
-    mockarooService("p117").then((res) => {
+    mockarooService("p118").then((res) => {
       const metaTitle = res.body.meta_title;
       const metaDescription = res.body.meta_description;
       generalSection.editMetaData(metaTitle, metaDescription);
