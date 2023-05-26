@@ -9,15 +9,6 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 
 ---
 
-# Semana 1
-## Funcionalidades
-[Descripción funcionalidades]()
-
-## Inventario de pruebas
-[Inventario de pruebas]()
-
----
-
 # Semana A
 Ejecucion de Monkeys y Rippers, Pros y Contras
 [Enlace al README](https://github.com/Molvilada/Entrega_Final_Grupo_17/blob/main/Semana%20A/README.md)
@@ -33,6 +24,12 @@ Ejecucion de Cypress y Kraken, Pros y Contras
 # Semana C
 Ejecucion de Cypress, Kraken y ResembleJS, Pros y Contras
 [Enlace al README](https://github.com/Molvilada/Entrega_Final_Grupo_17/blob/main/Semana%20C/README.md)
+
+---
+
+# Semana D
+Ejecucion de Cypress y Kraken, Resumen de actividades
+[Enlace al README](https://github.com/Molvilada/Entrega_Final_Grupo_17/blob/main/Semana%20D/README.md)
 
 
 # Incidencias
