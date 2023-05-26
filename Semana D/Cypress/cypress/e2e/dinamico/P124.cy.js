@@ -30,6 +30,7 @@ describe("Editar Twitter de usuario", () => {
         const testMockaroo = '/p124.json';
         staffSection.getDinamicTwMockarooRE(testMockaroo).then((bioData) => {
             const tw = bioData.twProfile;
+            console.log(tw);
             const toEvaluated = twProfile + tw;
             staffSection.twitterField.type(toEvaluated, {
                 force: true
