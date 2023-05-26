@@ -122,6 +122,15 @@ export default class StaffSection {
         });
       }
 
+      getDinamicFaceMockaroo(testMockaroo) {
+        return cy.request(this.urlMockaroo(testMockaroo)).then((response) => {
+          const { fbProfile } = response.body;    
+          return {
+            fbProfile,
+          };
+        });
+      }
+
       replacePass(newpass) {                
         this.editorContainerPass.type(newpass);
         this.editorContainerNewPass.type(newpass);        
