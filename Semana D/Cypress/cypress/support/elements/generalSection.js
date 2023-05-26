@@ -76,4 +76,10 @@ export default class GeneralSection {
     this.metaDescriptionInput.clear();
     this.metaDescriptionInput.type(description, { force: true });
   }
+
+  editMetaDataEmpty(title) {
+    this.metaTitleInput.clear();
+    this.metaTitleInput.type(title, { force: true });
+    this.metaDescriptionInput.clear();    
+  }
 }

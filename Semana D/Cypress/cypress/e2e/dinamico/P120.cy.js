@@ -5,8 +5,8 @@ import { mockarooService } from "../../support/services";
 const generalSection = new GeneralSection();
 const adminMenu = new AdminMenu();
 
-describe("Editar meta descripción con 500 caracteres.", () => {
-  it("Editar meta descripción con 500 caracteres.", () => {
+describe("Editar meta descripción con sin caracteres.", () => {
+  it("Editar meta descripción con sin caracteres.", () => {
     /* 
     -------------
       GIVEN
@@ -30,10 +30,9 @@ describe("Editar meta descripción con 500 caracteres.", () => {
     */
 
     // Editar meta titulo
-    mockarooService("p119").then((res) => {
+    mockarooService("p120").then((res) => {
       const metaTitle = res.body.meta_title;
-      const metaDescription = res.body.meta_description;
-      generalSection.editMetaData(metaTitle, metaDescription);
+      generalSection.editMetaDataEmpty(metaTitle);
       generalSection.saveButton.click();
       /* 
       -------------
@@ -46,7 +45,6 @@ describe("Editar meta descripción con 500 caracteres.", () => {
       cy.wait(1000);
       generalSection.metaDataButton.click();
       generalSection.metaTitleInput.should("have.value", metaTitle);
-      generalSection.metaDescriptionInput.should("have.value", metaDescription);
       generalSection.metaTitleCountDown.contains(metaTitle.length.toString());
     });
   });
