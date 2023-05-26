@@ -5,8 +5,8 @@ import { mockarooService } from "../../support/services";
 const adminMenu = new AdminMenu();
 const staffSection = new StaffSection();
 
-describe("Editar biografía de usuario", () => {
-  it("Editar la biografía de usuario con caracteres especiales", () => {
+describe("Editar email de usuario", () => {
+  it("Editar el email de usuario con emaio con caracteres especiales", () => {
     /*
     -------------
     GIVEN
@@ -27,15 +27,16 @@ describe("Editar biografía de usuario", () => {
     -------------
     */
 
-    mockarooService("p113").then((res) => {
-      const bio = res.body.bio;
-      // Editar la biografía de usuario
-      staffSection.bioField.clear();
+    mockarooService("p097").then((res) => {
+      const email = res.body.email + "@" + "email" + ".com";
+      // Editar el email de usuario del perfil Ghost
+      staffSection.emailField.clear();
       cy.wait(1000);
-      staffSection.bioField.type(bio, { force: true });
+      staffSection.emailField.type(email, { force: true });
       cy.wait(1000);
       // Guardar cambios
       staffSection.saveChanges.click();
+      cy.wait(1000);
 
       /*
       -------------
@@ -43,15 +44,15 @@ describe("Editar biografía de usuario", () => {
       -------------
       */
 
-      // Verificar que la biografía de usuario se haya actualizado
-      cy.reload();
-      cy.wait(1000);
-      staffSection.bioField.should("have.value", bio);
+      // Verificar que APAREZCA el mensaje de error
+      staffSection.noFormatEmailAlert.should("be.visible");
+      // Verificar que el botón de guardar cambios esté deshabilitado
+      staffSection.saveChanges.should("not.exist");
       // Retornar a condiciones iniciales
-      staffSection.bioField.clear();
+      staffSection.emailField.clear();
       cy.wait(1000);
-      staffSection.bioField.type("I am a ghost", { force: true });
-      staffSection.saveChanges.click();
+      staffSection.emailField.type("example@email.com", { force: true });
+      staffSection.saveRetry.click();
     });
   });
 });
