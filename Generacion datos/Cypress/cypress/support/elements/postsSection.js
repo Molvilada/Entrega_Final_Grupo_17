@@ -11,6 +11,22 @@ export default class PostSection {
     return cy.get("input#url");
   }
 
+  settingsResponse(message) {
+    return cy.get("p.response").contains(message);
+  }
+
+  get settingsMetadata() {
+    return cy.get("li").contains("Meta data");
+  }
+
+  get settingsMetadataUrlLabel() {
+    return cy.get("label").contains("Canonical URL");
+  }
+
+  get settingsMetadataUrl() {
+    return cy.get("input.post-setting-canonicalUrl");
+  }
+
   get settingsExerpt() {
     return cy.get("textarea.post-setting-custom-excerpt");
   }
