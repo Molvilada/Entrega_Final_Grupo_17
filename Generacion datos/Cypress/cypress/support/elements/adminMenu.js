@@ -30,4 +30,16 @@ export default class AdminMenu {
   get generalTab() {
     return cy.get("a").contains("General");
   }
+
+  get searchButton() {
+    return cy.get("button.gh-nav-btn-search");
+  }
+
+  get searchInput() {
+    return cy.get('input[placeholder="Search site..."]');
+  }
+
+  get searchNoResultsMessage() {
+    return cy.get('li.ember-power-select-option--no-matches-message');
+  }
 }
