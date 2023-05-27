@@ -7,6 +7,10 @@ export default class PostSection {
     return cy.get("textarea[placeholder='Post Title']");
   }
 
+  get settingsUrl() {
+    return cy.get("input#url");
+  }
+
   get settingsExerpt() {
     return cy.get("textarea.post-setting-custom-excerpt");
   }
