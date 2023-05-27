@@ -7,8 +7,13 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 - Laura Daniela Molina
 - Wilmar Julian Puentes
 
+## Estrategia de pruebas
+[Descripción estrategia de pruebas](https://uniandes-my.sharepoint.com/:b:/g/personal/ld_molina11_uniandes_edu_co/EXYr0I2asqNLvONfTxp8EfUBfrV_AEsYyJF86gRn39Zu8g?e=gmMjmv)
+
 ## Escenarios de prueba
 [Descripción escenarios de prueba](https://uniandes-my.sharepoint.com/:x:/g/personal/ld_molina11_uniandes_edu_co/EUdX2KsR3UZDpTIqupXYO5cBGmvNQl2Q_Eo-zvmvZsDRUw?e=Aapmsy)
+
+## Inventario de pruebas exploratorias
 
 ## Escenarios probados con Cypress
 ### Pre-requisitos y pasos previos:
@@ -43,7 +48,6 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
    ![image](https://user-images.githubusercontent.com/17149432/236364324-ae425d21-29e6-4c9b-bf31-2ced190cc312.png)
 6. Escoger el script de interés, esto empezará a correr la prueba
 
-
 ## Escenarios probados con Kraken
 ### Pre-requisitos y pasos previos:
 - Node.js v14.18.0
@@ -58,12 +62,17 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
   "USERNAMEGHOST": "ghost-author@example.com"
 }
 ~~~
-
 ### Pasos para ejecutar los scripts
 1. Ubicarse en la carpeta Kraken y ejecutar el comando `npm i`.
 2. Una vez finalizada la ejecución del comando anterior, correr el comando `npx kraken-node doctor` y verificar que se tienen instaladas todas las dependencias necesarias.
 3. Si el anterior paso se cumple satisfactoriamente, correr el comando `npx kraken-node run`, esto correrá el escenario que se encuentre en el archivo featureFile.feature.
 4. Si desea correr otro escenario, dirijase a la carpeta *features\web\scenarios* donde encontrará todos los escenarios disponibles. Seleccione el que desee, copie todo su contenido y péguelo en el archivo *featureFile.feature*
 
-# Incidencias
+## Incidencias
 Las incidencias reportadas durante todas las semanas se encuentran en los [Issues de este repositorio](https://github.com/Molvilada/Entrega_Final_Grupo_17/issues)
+
+## Pros y Contras Herramientas
+- [Pros Contras Monkeys y Rippers](https://github.com/Molvilada/Entrega_Final_Grupo_17/wiki/Pros-Contras-Monkeys-y-Rippers)
+- [Pros Contras Cypress y Kraken](https://github.com/Molvilada/Entrega_Final_Grupo_17/wiki/Pros-Contras-Cypress-y-Kraken)
+- [Pros Contras Resemble y Backstop](https://github.com/Molvilada/Entrega_Final_Grupo_17/wiki/Pros-Contras-Resemble-y-Backstop)
+
