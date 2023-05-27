@@ -89,3 +89,6 @@ Las incidencias reportadas durante todas las semanas se encuentran en los [Issue
 - [Pros Contras Cypress y Kraken](https://github.com/Molvilada/Entrega_Final_Grupo_17/wiki/Pros-Contras-Cypress-y-Kraken)
 - [Pros Contras Resemble y Backstop](https://github.com/Molvilada/Entrega_Final_Grupo_17/wiki/Pros-Contras-Resemble-y-Backstop)
 
+## Video de la estrategia de pruebas
+[Video](https://uniandes-my.sharepoint.com/:v:/g/personal/ld_molina11_uniandes_edu_co/ET2GaqmA9f9Gvxrcv7VvO80Bk55UljIQ9wff_9cFgoXFug?e=lwmsYM)
+
