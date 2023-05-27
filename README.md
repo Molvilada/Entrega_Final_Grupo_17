@@ -14,6 +14,7 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 [Descripción escenarios de prueba](https://uniandes-my.sharepoint.com/:x:/g/personal/ld_molina11_uniandes_edu_co/EUdX2KsR3UZDpTIqupXYO5cBGmvNQl2Q_Eo-zvmvZsDRUw?e=Aapmsy)
 
 ## Inventario de pruebas exploratorias
+[Inventario de pruebas exploratorias](https://uniandes-my.sharepoint.com/:x:/g/personal/ld_molina11_uniandes_edu_co/EdykaS6sWEBMncg_LbI8YDgB2EKcRVVPtiKevkCxR7o3iA?e=C9hxwB)
 
 ## Escenarios probados con Cypress
 ### Pre-requisitos y pasos previos:
