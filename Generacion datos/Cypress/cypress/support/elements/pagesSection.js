@@ -31,6 +31,14 @@ export default class PageSection {
     return cy.get("button[title='Settings']");
   }
 
+  get settingsUrl() {
+    return cy.get("input#url");
+  }
+
+  get contentCover() {
+    return cy.get(".content-cover");
+  }
+
   get getExcerptField() {
     return cy.get("textarea[name='post-setting-custom-excerpt']");
   }
