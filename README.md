@@ -7,6 +7,9 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 - Laura Daniela Molina
 - Wilmar Julian Puentes
 
+## Escenarios de prueba
+[Descripción escenarios de prueba](https://uniandes-my.sharepoint.com/:x:/g/personal/ld_molina11_uniandes_edu_co/EUdX2KsR3UZDpTIqupXYO5cBGmvNQl2Q_Eo-zvmvZsDRUw?e=Aapmsy)
+
 ## Escenarios probados con Cypress
 ### Pre-requisitos y pasos previos:
 - Node.js v14.18.0
