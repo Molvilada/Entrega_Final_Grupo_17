@@ -19,7 +19,7 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 ## Escenarios probados con Cypress
 ### Pre-requisitos y pasos previos:
 - Node.js v14.18.0
-- Tener *Ghost* corriendo, se puede ejecutar el archivo *docker-compose.yml* provisto en este repositorio para tal propósito.
+- Tener *Ghost* corriendo.
 - Tener un perfil creado en *Ghost* con permisos de administrador.
 - En el archivo *cypress.config.js* se debe especificar la url donde esté corriendo el administrador de *Ghost*, y el usuario y la contraseña del perfil con permisos de administrador, además se agrega el usuario genérico de Ghost que se crea por defecto, este debe actualizar sí ha cambiado el correo genérico, por ejemplo:
 
@@ -54,7 +54,7 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 ## Escenarios probados con Kraken
 ### Pre-requisitos y pasos previos:
 - Node.js v14.18.0
-- Tener *Ghost* corriendo, se puede ejecutar el archivo *docker-compose.yml* provisto en este repositorio para tal propósito.
+- Tener *Ghost* corriendo.
 - Tener un perfil creado en *Ghost* con permisos de administrador.
 - En el archivo *properties.json* se debe especificar la url donde esté corriendo el administrador de *Ghost*, y el usuario y la contraseña del perfil con permisos de administrador, además se agrega el usuario genérico de Ghost que se crea por defecto este debe actualizar sí ha cambiado el correo genérico  por ejemplo:
 ~~~
@@ -73,13 +73,77 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 
 **_Nota_**: Los nombres de los scripts corresponden con el identificador de cada escenario de prueba.
 
-## Resemble
-### Pasos para ejecutar el script
-1. Ubicarse en la carpeta Resemble y ejecutar el comando `npm i`.
-2. Una vez finalizada la ejecución del comando anterior, correr el comando `node index.js`.
-3. Luego de que termine la ejecución, habra una nueva carpeta llamada _report_ con el reporte generado en html y css.
+## Monkey
+### Pre-requisitos y pasos previos:
+- Node.js v14.18.0
+- Tener *Ghost* corriendo.
+- Tener un perfil creado en *Ghost* con permisos de administrador.
+- Si se quiere correr el monkey normal modificar el archivo *monkey-config.json*, si se quiere correr el smart monkey modificar el archivo *smart-monkey-config.json*, en estos  se debe especificar la url donde esté corriendo el administrador de *Ghost*, y el usuario y la contraseña del perfil con permisos de administrador, por ejemplo:
 
-**Nota:** Las imagenes de comparación de cada paso quedan guardadas en la carpeta _screenshots_10_scenarios_ terminando en _compare.png_
+~~~
+ {
+  "projectId": "TSDL-Monkey-with-cypress",
+  "baseUrl": "http://localhost:2368/ghost/",
+  "env": {
+    "appName": "Ghost v3.41.1",
+    "events": 200,
+    "delay": 300,
+    "pctClicks": 19,
+    "pctScroll": 17,
+    "pctSelectors": 16,
+    "pctKeys": 16,
+    "pctSpKeys": 16,
+    "pctPgNav": 16,
+    "pointer": true,
+    "email": "correo@uniandes.edu.co",
+    "password": "password"
+  },
+  "integrationFolder": "./cypress/integration/monkey",
+  "pluginsFile": "./cypress/plugins/index.js",
+  "pageLoadTimeout": 120000,
+  "defaultCommandTimeout": 120000,
+  "testFiles": "monkey.js",
+  "videosFolder": "./results"
+}
+~~~
+
+### Pasos para ejecutar el script
+1. Ubicarse en la carpeta Reconocimiento > Monkey y ejecutar el comando `npm i`.
+2. Una vez finalizada la ejecución del comando anterior, correr el comando `npx cypress open --config-file <ruta_archivo_configuracion>`.
+
+## RIPuppet
+Una biblioteca de Node.js para GUI Ripping de aplicaciones web.
+
+### Pre-requisitos y pasos previos:
+- Node.js v14.18.0
+- Tener *Ghost* corriendo.
+- Tener un perfil creado en *Ghost* con permisos de administrador.
+- En el archivo *config.json* se debe especificar la url donde esté corriendo el administrador de *Ghost*, y el usuario y la contraseña del perfil con permisos de administrador:
+~~~
+{
+  "url": "http://localhost:2368/ghost/",
+  "headless": true,
+  "depthLevels": 1,
+  "inputValues": false,
+  "login": {
+    "email": "correo@uniandes.edu.co",
+    "password": "password."
+  },
+  "values": {
+    "userInput": "Mario",
+    "passwordInput": "123456",
+    "passwordTwoInput": "123456",
+    "nameInput": "Mario",
+    "emailInput": "mario@b.com"
+  },
+  "browsers": ["chromium", "webkit", "firefox"]
+}
+~~~
+
+### Pasos para ejecutar el script
+1. Ubicarse en la carpeta Reconocimiento > Ripper y ejecutar el comando `npm i`.
+2. Una vez finalizada la ejecución del comando anterior, ejecutar el comando `node index.js`.
+
 
 ## Incidencias
 Las incidencias reportadas durante todas las semanas se encuentran en los [Issues de este repositorio](https://github.com/Molvilada/Entrega_Final_Grupo_17/issues)
