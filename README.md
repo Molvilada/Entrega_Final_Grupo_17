@@ -48,6 +48,8 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
    ![image](https://user-images.githubusercontent.com/17149432/236364324-ae425d21-29e6-4c9b-bf31-2ced190cc312.png)
 6. Escoger el script de interés, esto empezará a correr la prueba
 
+**_Nota_**: Los nombres de los scripts corresponden con el identificador de cada escenario de prueba.
+
 ## Escenarios probados con Kraken
 ### Pre-requisitos y pasos previos:
 - Node.js v14.18.0
@@ -67,6 +69,16 @@ Este repositorio fue creado como parte de la entrega final correspondiente a la 
 2. Una vez finalizada la ejecución del comando anterior, correr el comando `npx kraken-node doctor` y verificar que se tienen instaladas todas las dependencias necesarias.
 3. Si el anterior paso se cumple satisfactoriamente, correr el comando `npx kraken-node run`, esto correrá el escenario que se encuentre en el archivo featureFile.feature.
 4. Si desea correr otro escenario, dirijase a la carpeta *features\web\scenarios* donde encontrará todos los escenarios disponibles. Seleccione el que desee, copie todo su contenido y péguelo en el archivo *featureFile.feature*
+
+**_Nota_**: Los nombres de los scripts corresponden con el identificador de cada escenario de prueba.
+
+## Resemble
+### Pasos para ejecutar el script
+1. Ubicarse en la carpeta Resemble y ejecutar el comando `npm i`.
+2. Una vez finalizada la ejecución del comando anterior, correr el comando `node index.js`.
+3. Luego de que termine la ejecución, habra una nueva carpeta llamada _report_ con el reporte generado en html y css.
+
+**Nota:** Las imagenes de comparación de cada paso quedan guardadas en la carpeta _screenshots_10_scenarios_ terminando en _compare.png_
 
 ## Incidencias
 Las incidencias reportadas durante todas las semanas se encuentran en los [Issues de este repositorio](https://github.com/Molvilada/Entrega_Final_Grupo_17/issues)
